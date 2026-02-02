@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
-import { ArrowRight, Mail } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { useRef } from "react";
 
@@ -38,7 +38,7 @@ export default function Contact() {
                         className="max-w-5xl text-6xl font-bold tracking-tighter text-white sm:text-8xl md:text-9xl bg-clip-text text-transparent bg-cover"
                     // style={{ background: "url('https://cdn.dribbble.com/users/1770290/screenshots/6252936/bg_2.png')" }} 
                     >
-                        <span className="block text-white">Let's build</span>
+                        <span className="block text-white">Let&apos;s build</span>
                         <span className="block bg-gradient-to-r from-indigo-300 via-white/90 to-purple-300 bg-clip-text text-transparent pb-4">something legendary.</span>
                     </motion.h2>
 

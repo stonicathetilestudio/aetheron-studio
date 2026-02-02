@@ -1,8 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Facebook, Twitter, Instagram, Linkedin, ArrowRight, Github } from "lucide-react";
-import { motion } from "framer-motion";
+import { Twitter, Instagram, Linkedin, ArrowRight, Github } from "lucide-react";
 
 export default function Footer() {
     return (
@@ -104,7 +103,7 @@ export default function Footer() {
     );
 }
 
-function SocialLink({ href, icon: Icon }: { href: string; icon: any }) {
+function SocialLink({ href, icon: Icon }: { href: string; icon: React.ElementType }) {
     return (
         <Link
             href={href}

@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 const clients1 = [
@@ -26,7 +25,7 @@ export default function TrustedBy() {
                     </div>
 
                     <h2 className="mb-4 text-3xl font-bold tracking-tight text-white">
-                        Powering the world's most <span className="text-gradient">innovative brands.</span>
+                        Powering the world&apos;s most <span className="text-gradient">innovative brands.</span>
                     </h2>
                 </div>
 

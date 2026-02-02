@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import { Code, Palette, Search, Smartphone, Rocket, Globe } from "lucide-react";
-import { cn } from "@/lib/utils";
 
 const services = [
     {

@@ -1,8 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { Star, Quote } from "lucide-react";
-import { cn } from "@/lib/utils";
 
 const testimonials = [
     {
@@ -48,7 +46,7 @@ export default function Testimonials() {
                     Loved by <span className="text-gradient">Industry Leaders</span>
                 </h2>
                 <p className="max-w-2xl mx-auto text-lg text-zinc-400">
-                    Don't just take our word for it. Here's what our partners have to say about working with Aetheron.
+                    Don&apos;t just take our word for it. Here&apos;s what our partners have to say about working with Aetheron.
                 </p>
             </div>
 
@@ -73,7 +71,7 @@ export default function Testimonials() {
                             </div>
 
                             <p className="mb-8 text-lg leading-relaxed text-zinc-300">
-                                "{testimonial.content}"
+                                &quot;{testimonial.content}&quot;
                             </p>
 
                             <div className="flex items-center gap-4">

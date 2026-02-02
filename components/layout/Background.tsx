@@ -1,7 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 
 export default function Background() {
     const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });

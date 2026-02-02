@@ -4,9 +4,18 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform, MotionValue } from "framer-motion";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
-import { cn } from "@/lib/utils";
 
-const projects = [
+interface Project {
+    title: string;
+    category: string;
+    description: string;
+    tags: string[];
+    image: string;
+    color: string;
+    link: string;
+}
+
+const projects: Project[] = [
     {
         title: "Lumina Finance",
         category: "Fintech",
@@ -73,7 +82,7 @@ export default function Portfolio() {
                                 i={index}
                                 project={project}
                                 progress={scrollYProgress}
-                                range={[index * 0.25, 1]}
+                                range={range}
                                 targetScale={targetScale}
                             />
                         );
@@ -93,7 +102,7 @@ export default function Portfolio() {
     )
 }
 
-function Card({ i, project, progress, range, targetScale }: { i: number, project: any, progress: MotionValue<number>, range: number[], targetScale: number }) {
+function Card({ i, project, progress, range, targetScale }: { i: number, project: Project, progress: MotionValue<number>, range: number[], targetScale: number }) {
     const container = useRef(null);
     const { scrollYProgress } = useScroll({
         target: container,
