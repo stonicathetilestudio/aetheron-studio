@@ -2,6 +2,7 @@ import Navbar from "@/components/layout/Navbar";
 import Hero from "@/components/home/Hero";
 import TrustedBy from "@/components/home/TrustedBy";
 import Services from "@/components/home/Services";
+import Process from "@/components/home/Process";
 import Portfolio from "@/components/home/Portfolio";
 import Testimonials from "@/components/home/Testimonials";
 import Contact from "@/components/home/Contact";
@@ -14,6 +15,7 @@ export default function Home() {
       <Hero />
       <TrustedBy />
       <Services />
+      <Process />
       <Portfolio />
       <Testimonials />
       <Contact />

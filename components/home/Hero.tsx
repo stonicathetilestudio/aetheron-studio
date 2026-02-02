@@ -25,7 +25,7 @@ export default function Hero() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
-                    className="max-w-4xl text-5xl font-bold tracking-tight text-foreground sm:text-7xl md:text-8xl"
+                    className="max-w-4xl text-5xl font-bold tracking-tight text-foreground sm:text-7xl md:text-8xl will-change-transform"
                 >
                     We craft <span className="text-gradient">digital experiences</span> that matter.
                 </motion.h1>
@@ -34,7 +34,7 @@ export default function Hero() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
-                    className="mt-8 max-w-2xl text-lg text-muted-foreground sm:text-xl"
+                    className="mt-8 max-w-2xl text-lg text-muted-foreground sm:text-xl will-change-transform"
                 >
                     Aetheron Studio is a premium digital agency transforming ideas into immersive web experiences. We blend aesthetics with functionality.
                 </motion.p>

@@ -4,8 +4,9 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform, MotionValue } from "framer-motion";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
+import { projects } from "@/lib/data";
 
-interface Project {
+interface Project { // Still needed for type safety in props, or import if exported
     title: string;
     category: string;
     description: string;
@@ -14,45 +15,6 @@ interface Project {
     color: string;
     link: string;
 }
-
-const projects: Project[] = [
-    {
-        title: "Lumina Finance",
-        category: "Fintech",
-        description: "Reimagining the future of digital banking with a focus on human-centric design, real-time analytics, and seamless transaction management.",
-        tags: ["Next.js", "Tailwind CSS"],
-        image: "/images/project1.jpg",
-        color: "#4f46e5", // Indigo
-        link: "#",
-    },
-    {
-        title: "Aura Health",
-        category: "Wellness",
-        description: "A comprehensive meditation and wellness platform featuring a calming UI, personalized progress tracking, and bio-feedback integration.",
-        tags: ["React Native", "GraphQL"],
-        image: "/images/project2.jpg",
-        color: "#059669", // Emerald
-        link: "#",
-    },
-    {
-        title: "Nexus Tech",
-        category: "Enterprise",
-        description: "A robust SaaS platform designed to streamline workflows for distributed teams, featuring real-time collaboration and advanced reporting.",
-        tags: ["Vue.js", "Firebase"],
-        image: "/images/project3.jpg",
-        color: "#db2777", // Pink
-        link: "#",
-    },
-    {
-        title: "Stratos",
-        category: "Aerospace",
-        description: "Next-generation telemetry dashboard for autonomous drone fleets, providing real-time data visualization and mission control.",
-        tags: ["Rust", "WebAssembly"],
-        image: "/images/project4.jpg",
-        color: "#ea580c", // Orange
-        link: "#",
-    },
-];
 
 export default function Portfolio() {
     const containerRef = useRef<HTMLDivElement>(null);
@@ -89,14 +51,7 @@ export default function Portfolio() {
                     })}
                 </div>
 
-                <div className="h-[20vh] flex items-center justify-center bg-transparent relative z-10">
-                    <Link
-                        href="#"
-                        className="inline-flex h-12 items-center justify-center rounded-full border border-white/20 bg-white/5 px-8 text-base font-medium text-white transition-colors hover:bg-white hover:text-black backdrop-blur-md"
-                    >
-                        View Entire Archive
-                    </Link>
-                </div>
+
             </div>
         </section>
     )

@@ -1,18 +1,23 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import { motion, useMotionValue, useMotionTemplate } from "framer-motion";
 
 export default function Background() {
-    const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+    const mouseX = useMotionValue(0);
+    const mouseY = useMotionValue(0);
 
     useEffect(() => {
         const handleMouseMove = (e: MouseEvent) => {
-            setMousePosition({ x: e.clientX, y: e.clientY });
+            mouseX.set(e.clientX);
+            mouseY.set(e.clientY);
         };
 
         window.addEventListener("mousemove", handleMouseMove);
         return () => window.removeEventListener("mousemove", handleMouseMove);
-    }, []);
+    }, [mouseX, mouseY]);
+
+    const background = useMotionTemplate`radial-gradient(600px circle at ${mouseX}px ${mouseY}px, rgba(99, 102, 241, 0.05), transparent 40%)`;
 
     return (
         <div className="fixed inset-0 -z-50 h-full w-full bg-black">
@@ -23,10 +28,10 @@ export default function Background() {
             />
 
             {/* Spotlight Effect following mouse */}
-            <div
+            <motion.div
                 className="pointer-events-none absolute inset-0 transition-opacity duration-300"
                 style={{
-                    background: `radial-gradient(600px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(99, 102, 241, 0.05), transparent 40%)`,
+                    background: background,
                 }}
             />
 
