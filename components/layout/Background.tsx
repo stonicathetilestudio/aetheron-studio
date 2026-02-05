@@ -20,7 +20,7 @@ export default function Background() {
     const background = useMotionTemplate`radial-gradient(600px circle at ${mouseX}px ${mouseY}px, rgba(99, 102, 241, 0.05), transparent 40%)`;
 
     return (
-        <div className="fixed inset-0 -z-50 h-full w-full bg-black">
+        <div className="fixed inset-0 -z-50 h-full w-full bg-background transition-colors duration-300">
             {/* Base Grid */}
             <div
                 className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"

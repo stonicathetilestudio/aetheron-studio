@@ -6,6 +6,7 @@ import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
+
 const Navbar = () => {
     const { scrollY } = useScroll();
     const [hidden, setHidden] = useState(false);
@@ -46,7 +47,7 @@ const Navbar = () => {
                 className={cn(
                     "flex w-full max-w-5xl items-center justify-between rounded-full px-6 transition-all duration-300",
                     scrolled
-                        ? "glass h-14 bg-black/40 shadow-lg backdrop-blur-md dark:border-white/10 dark:bg-black/40"
+                        ? "h-14 bg-white/75 shadow-lg backdrop-blur-md border border-black/5 dark:bg-black/40 dark:border-white/10"
                         : "h-16 bg-transparent"
                 )}
             >
@@ -74,13 +75,16 @@ const Navbar = () => {
                     </ul>
                 </nav>
 
-                {/* CTA Button */}
-                <div className="hidden md:block">
+                {/* CTA Button & Theme Toggle */}
+                <div className="hidden items-center gap-4 md:flex">
+
                     <Link
-                        href="#contact"
+                        href="https://calendar.google.com/calendar/u/0/appointments/schedules/YOUR_SCHEDULE_ID"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="inline-flex h-9 items-center justify-center rounded-full bg-foreground px-4 text-sm font-medium text-background transition-colors hover:bg-foreground/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 dark:bg-white dark:text-black dark:hover:bg-white/90"
                     >
-                        Get Started
+                        Schedule a Call
                     </Link>
                 </div>
 
@@ -118,6 +122,7 @@ const Navbar = () => {
                         </li>
                     ))}
                 </ul>
+
             </div>
         </motion.header>
     );

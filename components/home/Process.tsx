@@ -39,7 +39,7 @@ export default function Process() {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="mb-6 text-3xl font-bold tracking-tight text-white sm:text-5xl"
+                        className="mb-6 text-3xl font-bold tracking-tight text-foreground sm:text-5xl"
                     >
                         Our <span className="text-gradient">Approach</span>
                     </motion.h2>
@@ -48,7 +48,7 @@ export default function Process() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.1 }}
-                        className="mx-auto max-w-2xl text-lg text-zinc-400"
+                        className="mx-auto max-w-2xl text-lg text-muted-foreground"
                     >
                         How we turn complexity into scalable growth in four steps.
                     </motion.p>
@@ -56,7 +56,7 @@ export default function Process() {
 
                 <div className="relative grid gap-8 md:grid-cols-4">
                     {/* Connecting Line (Desktop) */}
-                    <div className="hidden md:block absolute top-[60px] left-0 right-0 h-px bg-white/10 z-0 select-none">
+                    <div className="hidden md:block absolute top-[60px] left-0 right-0 h-px bg-black/10 dark:bg-white/10 z-0 select-none">
                         <div className="w-full h-full bg-gradient-to-r from-transparent via-primary/50 to-transparent opacity-50" />
                     </div>
 
@@ -71,26 +71,26 @@ export default function Process() {
                         >
                             {/* Step Indicator */}
                             <div className="mb-8 relative flex items-center justify-center">
-                                <div className="h-14 w-14 rounded-full border border-white/20 bg-zinc-900 flex items-center justify-center text-sm font-bold text-white shadow-[0_0_15px_rgba(255,255,255,0.05)] transition-all duration-300 group-hover:scale-110 group-hover:border-primary/50 group-hover:shadow-[0_0_30px_rgba(99,102,241,0.3)]">
+                                <div className="h-14 w-14 rounded-full border border-black/20 bg-background flex items-center justify-center text-sm font-bold text-foreground shadow-[0_0_15px_rgba(0,0,0,0.05)] transition-all duration-300 group-hover:scale-110 group-hover:border-primary/50 group-hover:shadow-[0_0_30px_rgba(99,102,241,0.3)] dark:border-white/20 dark:bg-zinc-900 dark:text-white dark:shadow-[0_0_15px_rgba(255,255,255,0.05)]">
                                     <span className="sr-only">Step </span>{step.number}
                                 </div>
                                 {/* Icon floating nearby */}
-                                <div className="absolute -top-6 -right-2 p-2 rounded-xl bg-white/5 backdrop-blur-md border border-white/10 opacity-0 transform translate-y-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0">
+                                <div className="absolute -top-6 -right-2 p-2 rounded-xl bg-black/5 backdrop-blur-md border border-black/10 opacity-0 transform translate-y-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0 dark:bg-white/5 dark:border-white/10">
                                     <step.icon className="w-5 h-5 text-primary" />
                                 </div>
                             </div>
 
                             <div className="text-center px-4">
-                                <h3 className="mb-3 text-xl font-bold text-white group-hover:text-primary transition-colors duration-300">
+                                <h3 className="mb-3 text-xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
                                     {step.title}
                                 </h3>
-                                <p className="text-zinc-400 text-sm leading-relaxed group-hover:text-zinc-300 transition-colors duration-300">
+                                <p className="text-muted-foreground text-sm leading-relaxed group-hover:text-foreground transition-colors duration-300">
                                     {step.description}
                                 </p>
                             </div>
 
                             {/* Hover Card Effect */}
-                            <div className="absolute inset-0 -z-10 -m-4 rounded-3xl bg-white/[0.02] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                            <div className="absolute inset-0 -z-10 -m-4 rounded-3xl bg-black/[0.02] opacity-0 transition-opacity duration-300 group-hover:opacity-100 dark:bg-white/[0.02]" />
                         </motion.div>
                     ))}
                 </div>

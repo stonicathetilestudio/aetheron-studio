@@ -1,29 +1,34 @@
 "use client";
 
 import Link from "next/link";
-import { Twitter, Instagram, Linkedin, ArrowRight, Github, Send, Check } from "lucide-react";
+import { Twitter, Instagram, Linkedin, ArrowRight, Github, Send, Check, AlertCircle } from "lucide-react";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { subscribeToNewsletter } from "@/app/actions/send-email";
 
 export default function Footer() {
     const [email, setEmail] = useState("");
-    const [status, setStatus] = useState<"idle" | "loading" | "success">("idle");
+    const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
 
     const handleSubscribe = async (e: React.FormEvent) => {
         e.preventDefault();
         if (!email) return;
 
         setStatus("loading");
-        // Simulate API call
-        await new Promise(resolve => setTimeout(resolve, 1500));
-        setStatus("success");
-        setEmail("");
+        const result = await subscribeToNewsletter(email);
 
-        setTimeout(() => setStatus("idle"), 3000);
+        if (result.success) {
+            setStatus("success");
+            setEmail("");
+            setTimeout(() => setStatus("idle"), 3000);
+        } else {
+            setStatus("error");
+            setTimeout(() => setStatus("idle"), 3000);
+        }
     };
 
     return (
-        <footer className="relative border-t border-white/10 bg-black pt-20 pb-10 text-white overflow-hidden">
+        <footer className="relative border-t border-black/10 bg-background pt-20 pb-10 text-foreground overflow-hidden dark:border-white/10 dark:bg-black dark:text-white">
             {/* Ambient Background Glow */}
             <div className="absolute top-[-20%] left-[-10%] h-[500px] w-[500px] rounded-full bg-primary/10 blur-[120px]" />
             <div className="absolute bottom-[-20%] right-[-10%] h-[400px] w-[400px] rounded-full bg-secondary/10 blur-[100px]" />
@@ -34,7 +39,7 @@ export default function Footer() {
                         <Link href="/" className="text-3xl font-bold tracking-tighter">
                             Aetheron<span className="text-primary">.</span>
                         </Link>
-                        <p className="max-w-md text-lg text-zinc-400">
+                        <p className="max-w-md text-lg text-muted-foreground">
                             Crafting immersive digital experiences that blend aesthetics with functionality. We help ambitious brands tell their story.
                         </p>
                         <div className="flex gap-4">
@@ -56,7 +61,7 @@ export default function Footer() {
                                     onChange={(e) => setEmail(e.target.value)}
                                     placeholder="Enter your email"
                                     disabled={status === "loading" || status === "success"}
-                                    className="w-full rounded-full border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-zinc-500 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary backdrop-blur-sm transition-all disabled:opacity-50"
+                                    className="w-full rounded-full border border-black/10 bg-black/5 px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary backdrop-blur-sm transition-all disabled:opacity-50 dark:border-white/10 dark:bg-white/5 dark:text-white dark:placeholder:text-zinc-500"
                                 />
                                 <AnimatePresence mode="wait">
                                     {status === "success" ? (
@@ -68,6 +73,16 @@ export default function Footer() {
                                             className="absolute right-1 top-1 bottom-1 inline-flex items-center justify-center rounded-full bg-green-500 px-3 text-white"
                                         >
                                             <Check className="h-4 w-4" />
+                                        </motion.div>
+                                    ) : status === "error" ? (
+                                        <motion.div
+                                            key="error"
+                                            initial={{ scale: 0.5, opacity: 0 }}
+                                            animate={{ scale: 1, opacity: 1 }}
+                                            exit={{ scale: 0.5, opacity: 0 }}
+                                            className="absolute right-1 top-1 bottom-1 inline-flex items-center justify-center rounded-full bg-red-500 px-3 text-white"
+                                        >
+                                            <AlertCircle className="h-4 w-4" />
                                         </motion.div>
                                     ) : (
                                         <motion.button
@@ -92,9 +107,9 @@ export default function Footer() {
                     </div>
                 </div>
 
-                <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mb-16 pt-8 border-t border-white/5">
+                <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mb-16 pt-8 border-t border-black/5 dark:border-white/5">
                     <div>
-                        <h4 className="mb-6 text-sm font-semibold uppercase tracking-wider text-zinc-500">Services</h4>
+                        <h4 className="mb-6 text-sm font-semibold uppercase tracking-wider text-muted-foreground">Services</h4>
                         <ul className="space-y-4 text-sm font-medium">
                             <li><FooterLink href="#services">Web Design</FooterLink></li>
                             <li><FooterLink href="#services">Development</FooterLink></li>
@@ -103,7 +118,7 @@ export default function Footer() {
                         </ul>
                     </div>
                     <div>
-                        <h4 className="mb-6 text-sm font-semibold uppercase tracking-wider text-zinc-500">Company</h4>
+                        <h4 className="mb-6 text-sm font-semibold uppercase tracking-wider text-muted-foreground">Company</h4>
                         <ul className="space-y-4 text-sm font-medium">
                             <li><FooterLink href="/about">About Us</FooterLink></li>
                             <li><FooterLink href="#work">Our Work</FooterLink></li>
@@ -112,7 +127,7 @@ export default function Footer() {
                         </ul>
                     </div>
                     <div>
-                        <h4 className="mb-6 text-sm font-semibold uppercase tracking-wider text-zinc-500">Legal</h4>
+                        <h4 className="mb-6 text-sm font-semibold uppercase tracking-wider text-muted-foreground">Legal</h4>
                         <ul className="space-y-4 text-sm font-medium">
                             <li><FooterLink href="/privacy-policy">Privacy Policy</FooterLink></li>
                             <li><FooterLink href="/terms-of-service">Terms of Service</FooterLink></li>
@@ -120,13 +135,13 @@ export default function Footer() {
                         </ul>
                     </div>
                     <div>
-                        <h4 className="mb-6 text-sm font-semibold uppercase tracking-wider text-zinc-500">Contact</h4>
-                        <ul className="space-y-4 text-sm font-medium text-zinc-400">
-                            <li className="flex items-center gap-3 group cursor-pointer hover:text-white transition-colors">
-                                <span className="flex h-8 w-8 items-center justify-center rounded-full bg-white/5 border border-white/10 group-hover:bg-white/10 group-hover:border-white/20 transition-all">
+                        <h4 className="mb-6 text-sm font-semibold uppercase tracking-wider text-muted-foreground">Contact</h4>
+                        <ul className="space-y-4 text-sm font-medium text-muted-foreground">
+                            <li className="flex items-center gap-3 group cursor-pointer hover:text-foreground transition-colors">
+                                <span className="flex h-8 w-8 items-center justify-center rounded-full bg-black/5 border border-black/10 group-hover:bg-black/10 group-hover:border-black/20 transition-all dark:bg-white/5 dark:border-white/10 dark:group-hover:bg-white/10 dark:group-hover:border-white/20">
                                     <Send className="h-3.5 w-3.5 text-primary" />
                                 </span>
-                                <a href="mailto:admin@aetheron.com" className="text-sm font-medium">admin@aetheron.com</a>
+                                <a href="mailto:admin@aetheronstudio.com" className="text-sm font-medium">admin@aetheronstudio.com</a>
                             </li>
                             <li className="flex items-center gap-3">
                                 <span className="relative flex h-2.5 w-2.5">
@@ -145,11 +160,11 @@ export default function Footer() {
                     </div>
                 </div>
 
-                <div className="flex flex-col items-center justify-between gap-4 border-t border-white/5 pt-8 text-center text-sm text-zinc-500 md:flex-row">
+                <div className="flex flex-col items-center justify-between gap-4 border-t border-black/5 pt-8 text-center text-sm text-muted-foreground md:flex-row dark:border-white/5">
                     <p>&copy; {new Date().getFullYear()} Aetheron Studio. All rights reserved.</p>
                     <div className="flex gap-6">
-                        <Link href="#" className="hover:text-white transition-colors">Privacy</Link>
-                        <Link href="#" className="hover:text-white transition-colors">Terms</Link>
+                        <Link href="#" className="hover:text-foreground transition-colors">Privacy</Link>
+                        <Link href="#" className="hover:text-foreground transition-colors">Terms</Link>
                     </div>
                 </div>
             </div>
@@ -164,7 +179,7 @@ function SocialLink({ href, icon: Icon, label }: { href: string; icon: React.Ele
             target="_blank"
             rel="noopener noreferrer"
             aria-label={label}
-            className="group flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 transition-all hover:bg-white hover:text-black hover:border-white hover:scale-110"
+            className="group flex h-10 w-10 items-center justify-center rounded-full border border-black/10 bg-black/5 transition-all hover:bg-black hover:text-white hover:border-black hover:scale-110 dark:border-white/10 dark:bg-white/5 dark:hover:bg-white dark:hover:text-black dark:hover:border-white"
         >
             <Icon className="h-5 w-5" />
         </Link>
@@ -173,7 +188,7 @@ function SocialLink({ href, icon: Icon, label }: { href: string; icon: React.Ele
 
 function FooterLink({ href, children }: { href: string; children: React.ReactNode }) {
     return (
-        <Link href={href} className="text-zinc-400 hover:text-primary hover:translate-x-1 transition-all block">
+        <Link href={href} className="text-muted-foreground hover:text-primary hover:translate-x-1 transition-all block">
             {children}
         </Link>
     )

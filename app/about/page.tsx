@@ -139,10 +139,12 @@ export default function AboutPage() {
                         Let's turn your vision into a digital reality that stands the test of time.
                     </p>
                     <Link
-                        href="/#contact"
+                        href="https://calendar.google.com/calendar/u/0/appointments/schedules/YOUR_SCHEDULE_ID"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white text-black font-bold hover:bg-zinc-200 transition-colors"
                     >
-                        Start a Project <ArrowRight className="w-4 h-4" />
+                        Schedule a Call <ArrowRight className="w-4 h-4" />
                     </Link>
                 </div>
             </section>

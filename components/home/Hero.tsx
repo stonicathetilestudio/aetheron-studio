@@ -27,16 +27,16 @@ export default function Hero() {
                     transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
                     className="max-w-4xl text-5xl font-bold tracking-tight text-foreground sm:text-7xl md:text-8xl will-change-transform"
                 >
-                    We craft <span className="text-gradient">digital experiences</span> that matter.
+                    We build <span className="text-gradient">structured growth systems</span> for ambitious businesses.
                 </motion.h1>
 
                 <motion.p
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
-                    className="mt-8 max-w-2xl text-lg text-muted-foreground sm:text-xl will-change-transform"
+                    className="mt-8 max-w-3xl text-lg text-muted-foreground sm:text-xl will-change-transform"
                 >
-                    Aetheron Studio is a premium digital agency transforming ideas into immersive web experiences. We blend aesthetics with functionality.
+                    Not just marketing. We design strategy, funnels, performance, and automation that turn attention into predictable revenue.
                 </motion.p>
 
                 <motion.div
@@ -46,17 +46,19 @@ export default function Hero() {
                     className="mt-10 flex flex-col items-center gap-4 sm:flex-row"
                 >
                     <Link
-                        href="#contact"
+                        href="https://calendar.google.com/calendar/u/0/appointments/schedules/YOUR_SCHEDULE_ID"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="inline-flex h-12 items-center justify-center rounded-full bg-primary px-8 text-base font-medium text-primary-foreground shadow-lg shadow-primary/25 transition-all hover:bg-primary/90 hover:shadow-primary/40 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
                     >
-                        Start a project
+                        Request a Strategy Call
                         <ArrowRight className="ml-2 h-4 w-4" />
                     </Link>
                     <Link
                         href="#work"
                         className="inline-flex h-12 items-center justify-center rounded-full border border-input bg-background px-8 text-base font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
                     >
-                        View our work
+                        See How We Work
                     </Link>
                 </motion.div>
             </div>

@@ -66,7 +66,7 @@ export default function Services() {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="mb-4 text-3xl font-bold tracking-tight text-white sm:text-5xl"
+                        className="mb-4 text-3xl font-bold tracking-tight text-foreground sm:text-5xl"
                     >
                         Our Capabilities
                     </motion.h2>
@@ -75,7 +75,7 @@ export default function Services() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.1 }}
-                        className="mx-auto max-w-2xl text-lg text-zinc-400"
+                        className="mx-auto max-w-2xl text-lg text-muted-foreground"
                     >
                         We help businesses scale through structured systems — not random tactics.
                     </motion.p>
@@ -91,17 +91,17 @@ export default function Services() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.5, delay: index * 0.1 }}
-                            className="group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-8 transition-all hover:bg-white/10 hover:border-primary/50 hover:shadow-2xl hover:shadow-primary/10 backdrop-blur-sm cursor-pointer will-change-transform"
+                            className="group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-black/5 bg-black/5 p-8 transition-all hover:bg-black/10 hover:border-primary/50 hover:shadow-2xl hover:shadow-primary/10 backdrop-blur-sm dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10 cursor-pointer will-change-transform"
                         >
                             <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 
                             <div className="relative z-10">
-                                <div className="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-white/10 to-white/5 text-white shadow-inner group-hover:scale-110 transition-transform duration-300">
-                                    <service.icon className="h-6 w-6 text-primary group-hover:text-white transition-colors" />
+                                <div className="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-black/5 to-black/10 text-foreground shadow-inner backdrop-blur-md transition-transform duration-300 group-hover:scale-110 dark:from-white/10 dark:to-white/5 dark:text-white">
+                                    <service.icon className="h-6 w-6 text-primary group-hover:text-foreground dark:group-hover:text-white transition-colors" />
                                 </div>
 
-                                <h3 className="mb-3 text-xl font-bold text-white group-hover:text-primary transition-colors">{service.title}</h3>
-                                <p className="text-zinc-400 leading-relaxed group-hover:text-zinc-300 transition-colors mb-6">
+                                <h3 className="mb-3 text-xl font-bold text-foreground group-hover:text-primary transition-colors">{service.title}</h3>
+                                <p className="text-muted-foreground leading-relaxed group-hover:text-foreground transition-colors mb-6">
                                     {service.description}
                                 </p>
                             </div>
@@ -109,7 +109,7 @@ export default function Services() {
                             <div className="relative z-10 mt-auto">
                                 <button
                                     onClick={() => setSelectedService(service)}
-                                    className="inline-flex items-center text-sm font-medium text-white hover:text-primary transition-colors group/btn"
+                                    className="inline-flex items-center text-sm font-medium text-foreground hover:text-primary transition-colors group/btn"
                                 >
                                     Learn More
                                     <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
@@ -141,11 +141,11 @@ export default function Services() {
                             exit={{ opacity: 0, scale: 0.9, y: 20 }}
                             className="fixed inset-0 z-50 flex items-center justify-center p-4 pointer-events-none"
                         >
-                            <div className="pointer-events-auto relative w-full max-w-2xl overflow-hidden rounded-3xl border border-white/10 bg-zinc-900 shadow-2xl">
+                            <div className="pointer-events-auto relative w-full max-w-2xl overflow-hidden rounded-3xl border border-black/10 bg-background shadow-2xl dark:border-white/10 dark:bg-zinc-900">
                                 {/* Close Button */}
                                 <button
                                     onClick={() => setSelectedService(null)}
-                                    className="absolute top-4 right-4 z-10 rounded-full bg-white/10 p-2 text-white hover:bg-white/20 transition-colors"
+                                    className="absolute top-4 right-4 z-10 rounded-full bg-black/5 p-2 text-foreground hover:bg-black/10 transition-colors dark:bg-white/10 dark:text-white dark:hover:bg-white/20"
                                 >
                                     <X className="h-5 w-5" />
                                 </button>
@@ -154,18 +154,18 @@ export default function Services() {
                                 <div className="absolute top-0 inset-x-0 h-32 bg-gradient-to-br from-primary/20 via-purple-500/10 to-transparent pointer-events-none" />
 
                                 <div className="p-8 md:p-12 relative z-0">
-                                    <div className="mb-6 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-white/10 to-white/5 text-white shadow-inner">
+                                    <div className="mb-6 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-black/5 to-black/10 text-foreground shadow-inner dark:from-white/10 dark:to-white/5 dark:text-white">
                                         <selectedService.icon className="h-8 w-8 text-primary" />
                                     </div>
 
-                                    <h3 className="mb-4 text-3xl font-bold text-white tracking-tight">{selectedService.title}</h3>
-                                    <p className="text-lg text-zinc-400 mb-8">{selectedService.description}</p>
+                                    <h3 className="mb-4 text-3xl font-bold text-foreground tracking-tight">{selectedService.title}</h3>
+                                    <p className="text-lg text-muted-foreground mb-8">{selectedService.description}</p>
 
                                     <div className="space-y-4">
-                                        <h4 className="text-sm font-bold uppercase tracking-widest text-zinc-500">Service Capabilities</h4>
+                                        <h4 className="text-sm font-bold uppercase tracking-widest text-muted-foreground">Service Capabilities</h4>
                                         <div className="grid gap-3 sm:grid-cols-2">
                                             {selectedService.details?.map((detail, idx) => (
-                                                <div key={idx} className="flex items-center gap-3 rounded-lg border border-white/5 bg-white/[0.02] p-3 text-zinc-300">
+                                                <div key={idx} className="flex items-center gap-3 rounded-lg border border-black/5 bg-black/[0.02] p-3 text-muted-foreground dark:border-white/5 dark:bg-white/[0.02] dark:text-zinc-300">
                                                     <CheckCircle2 className="h-5 w-5 text-green-400 flex-shrink-0" />
                                                     <span className="text-sm font-medium">{detail}</span>
                                                 </div>

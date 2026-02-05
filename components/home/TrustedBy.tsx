@@ -13,18 +13,18 @@ export default function TrustedBy() {
     return (
         <section className="relative z-10 overflow-hidden bg-transparent py-24">
             {/* Background Decoration */}
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-zinc-800/20 via-black to-black opacity-40" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-zinc-200/20 via-background to-background opacity-40 dark:from-zinc-800/20 dark:via-black dark:to-black" />
 
             <div className="container relative z-10 px-4 md:px-6">
                 <div className="mb-12 flex flex-col items-center text-center">
-                    <div className="mb-6 inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 px-4 py-1.5 backdrop-blur-md">
+                    <div className="mb-6 inline-flex items-center justify-center rounded-full border border-black/5 bg-black/5 px-4 py-1.5 backdrop-blur-md dark:border-white/10 dark:bg-white/5">
                         <span className="flex h-2 w-2 rounded-full bg-green-500 mr-2 animate-pulse" />
-                        <span className="text-xs font-medium uppercase tracking-widest text-zinc-300">
+                        <span className="text-xs font-medium uppercase tracking-widest text-muted-foreground">
                             Trusted Partner Network
                         </span>
                     </div>
 
-                    <h2 className="mb-4 text-3xl font-bold tracking-tight text-white">
+                    <h2 className="mb-4 text-3xl font-bold tracking-tight text-foreground">
                         Powering the world&apos;s most <span className="text-gradient">innovative brands.</span>
                     </h2>
                 </div>
@@ -33,7 +33,7 @@ export default function TrustedBy() {
                 <div className="relative mx-auto max-w-[100vw] overflow-hidden py-10" style={{ perspective: "1000px" }}>
 
                     {/* Top Gradient Fade */}
-                    <div className="absolute left-0 right-0 top-0 z-20 h-20 bg-gradient-to-b from-black to-transparent pointer-events-none" />
+                    <div className="absolute left-0 right-0 top-0 z-20 h-20 bg-gradient-to-b from-background to-transparent pointer-events-none" />
 
                     {/* Marquee Row 1 */}
                     <div className="mb-8 rotate-1 opacity-90 hover:opacity-100 transition-opacity duration-300 transform-gpu origin-center">
@@ -46,11 +46,11 @@ export default function TrustedBy() {
                     </div>
 
                     {/* Bottom Gradient Fade */}
-                    <div className="absolute left-0 right-0 bottom-0 z-20 h-20 bg-gradient-to-t from-black to-transparent pointer-events-none" />
+                    <div className="absolute left-0 right-0 bottom-0 z-20 h-20 bg-gradient-to-t from-background to-transparent pointer-events-none" />
 
                     {/* Side Fades */}
-                    <div className="absolute left-0 top-0 bottom-0 z-20 w-32 bg-gradient-to-r from-black to-transparent pointer-events-none" />
-                    <div className="absolute right-0 top-0 bottom-0 z-20 w-32 bg-gradient-to-l from-black to-transparent pointer-events-none" />
+                    <div className="absolute left-0 top-0 bottom-0 z-20 w-32 bg-gradient-to-r from-background to-transparent pointer-events-none" />
+                    <div className="absolute right-0 top-0 bottom-0 z-20 w-32 bg-gradient-to-l from-background to-transparent pointer-events-none" />
                 </div>
             </div>
         </section>
@@ -66,8 +66,8 @@ function MarqueeRow({ items, direction = "left", speed = "normal" }: { items: st
                 speed === "slow" && "duration-[60s]" // Override animation duration
             )}>
                 {[...items, ...items, ...items, ...items].map((client, index) => (
-                    <div key={index} className="group relative flex items-center justify-center rounded-xl border border-white/5 bg-white/[0.02] px-8 py-4 backdrop-blur-sm transition-all hover:bg-white/10 hover:border-white/20">
-                        <span className="text-xl font-bold uppercase tracking-tight text-zinc-500 transition-colors group-hover:text-white">
+                    <div key={index} className="group relative flex items-center justify-center rounded-xl border border-black/5 bg-black/[0.02] px-8 py-4 backdrop-blur-sm transition-all hover:bg-black/10 hover:border-black/20 dark:border-white/5 dark:bg-white/[0.02] dark:hover:bg-white/10 dark:hover:border-white/20">
+                        <span className="text-xl font-bold uppercase tracking-tight text-muted-foreground transition-colors group-hover:text-foreground dark:text-zinc-500 dark:group-hover:text-white">
                             {client}
                         </span>
                     </div>
