@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Palette, Code, Search, Megaphone, ArrowRight, CheckCircle2, X } from "lucide-react";
@@ -117,6 +119,16 @@ export default function Services() {
                             </div>
                         </motion.div>
                     ))}
+                </div>
+
+                <div className="mt-12 text-center">
+                    <Link
+                        href="/services"
+                        className="inline-flex h-12 items-center justify-center rounded-full bg-primary/10 px-8 text-sm font-medium text-primary hover:bg-primary/20 transition-colors"
+                    >
+                        View All Services
+                        <ArrowRight className="ml-2 h-4 w-4" />
+                    </Link>
                 </div>
             </div>
 

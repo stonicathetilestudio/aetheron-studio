@@ -28,13 +28,13 @@ export default function Footer() {
     };
 
     return (
-        <footer className="relative border-t border-black/10 bg-background pt-20 pb-10 text-foreground overflow-hidden dark:border-white/10 dark:bg-black dark:text-white">
+        <footer className="relative border-t border-black/10 bg-background pt-12 pb-8 text-foreground overflow-hidden dark:border-white/10 dark:bg-black dark:text-white">
             {/* Ambient Background Glow */}
             <div className="absolute top-[-20%] left-[-10%] h-[500px] w-[500px] rounded-full bg-primary/10 blur-[120px]" />
             <div className="absolute bottom-[-20%] right-[-10%] h-[400px] w-[400px] rounded-full bg-secondary/10 blur-[100px]" />
 
             <div className="container px-4 md:px-6 relative z-10">
-                <div className="grid gap-12 lg:grid-cols-2 lg:gap-8 mb-16">
+                <div className="grid gap-12 lg:grid-cols-2 lg:gap-8 mb-12">
                     <div className="space-y-6">
                         <Link href="/" className="text-3xl font-bold tracking-tighter">
                             Aetheron<span className="text-primary">.</span>
@@ -107,23 +107,23 @@ export default function Footer() {
                     </div>
                 </div>
 
-                <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mb-16 pt-8 border-t border-black/5 dark:border-white/5">
+                <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mb-12 pt-8 border-t border-black/5 dark:border-white/5">
                     <div>
                         <h4 className="mb-6 text-sm font-semibold uppercase tracking-wider text-muted-foreground">Services</h4>
                         <ul className="space-y-4 text-sm font-medium">
-                            <li><FooterLink href="#services">Web Design</FooterLink></li>
-                            <li><FooterLink href="#services">Development</FooterLink></li>
-                            <li><FooterLink href="#services">SEO Optimization</FooterLink></li>
-                            <li><FooterLink href="#services">Brand Identity</FooterLink></li>
+                            <li><FooterLink href="/#services">Web Design</FooterLink></li>
+                            <li><FooterLink href="/#services">Development</FooterLink></li>
+                            <li><FooterLink href="/#services">SEO Optimization</FooterLink></li>
+                            <li><FooterLink href="/#services">Brand Identity</FooterLink></li>
                         </ul>
                     </div>
                     <div>
                         <h4 className="mb-6 text-sm font-semibold uppercase tracking-wider text-muted-foreground">Company</h4>
                         <ul className="space-y-4 text-sm font-medium">
                             <li><FooterLink href="/about">About Us</FooterLink></li>
-                            <li><FooterLink href="#work">Our Work</FooterLink></li>
-                            <li><FooterLink href="#process">Process</FooterLink></li>
-                            <li><FooterLink href="#contact">Contact</FooterLink></li>
+                            <li><FooterLink href="/#work">Our Work</FooterLink></li>
+                            <li><FooterLink href="/#process">Process</FooterLink></li>
+                            <li><FooterLink href="/#contact">Contact</FooterLink></li>
                         </ul>
                     </div>
                     <div>
@@ -163,8 +163,8 @@ export default function Footer() {
                 <div className="flex flex-col items-center justify-between gap-4 border-t border-black/5 pt-8 text-center text-sm text-muted-foreground md:flex-row dark:border-white/5">
                     <p>&copy; {new Date().getFullYear()} Aetheron Studio. All rights reserved.</p>
                     <div className="flex gap-6">
-                        <Link href="#" className="hover:text-foreground transition-colors">Privacy</Link>
-                        <Link href="#" className="hover:text-foreground transition-colors">Terms</Link>
+                        <Link href="/privacy-policy" className="hover:text-foreground transition-colors">Privacy</Link>
+                        <Link href="/terms-of-service" className="hover:text-foreground transition-colors">Terms</Link>
                     </div>
                 </div>
             </div>

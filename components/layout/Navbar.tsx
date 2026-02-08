@@ -24,10 +24,10 @@ const Navbar = () => {
     });
 
     const links = [
-        { name: "Services", href: "#services" },
-        { name: "Work", href: "#work" },
-        { name: "Process", href: "#process" },
-        { name: "Contact", href: "#contact" },
+        { name: "Services", href: "/services" },
+        { name: "Work", href: "/#work" },
+        { name: "Process", href: "/#process" },
+        { name: "Contact", href: "/#contact" },
     ];
 
     return (
