@@ -34,11 +34,17 @@ body {
 }
 
 /* Glassmorphism Utilities */
+/* Glassmorphism Utilities */
 .glass {
-  background: rgba(10, 10, 10, 0.6);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background: rgba(10, 10, 10, 0.8);
   border: 1px solid rgba(255, 255, 255, 0.08);
+  
+  /* Only apply expensive blur on larger screens and when motion is allowed */
+  @media (min-width: 768px) and (prefers-reduced-motion: no-preference) {
+    background: rgba(10, 10, 10, 0.6);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
 }
 
 /* Text Gradients */

@@ -1,12 +1,15 @@
+import dynamic from "next/dynamic";
 import Navbar from "@/components/layout/Navbar";
 import Hero from "@/components/home/Hero";
-import TrustedBy from "@/components/home/TrustedBy";
-import Services from "@/components/home/Services";
-import Process from "@/components/home/Process";
-import Portfolio from "@/components/home/Portfolio";
-import Testimonials from "@/components/home/Testimonials";
-import Contact from "@/components/home/Contact";
 import Footer from "@/components/layout/Footer";
+
+// Lazy load heavy components below the fold
+const TrustedBy = dynamic(() => import("@/components/home/TrustedBy"), { ssr: true });
+const Services = dynamic(() => import("@/components/home/Services"), { ssr: true });
+const Process = dynamic(() => import("@/components/home/Process"), { ssr: true });
+const Portfolio = dynamic(() => import("@/components/home/Portfolio"), { ssr: true });
+const Testimonials = dynamic(() => import("@/components/home/Testimonials"), { ssr: true });
+const Contact = dynamic(() => import("@/components/home/Contact"), { ssr: true });
 
 export default function Home() {
   return (
